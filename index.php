@@ -1,6 +1,7 @@
 <?php
 require_once "config/connect.php";
 require_once "templates/header.php";
+session_start();
 
 $list = [];
 $sql = $conn->query("SELECT * FROM pokemons");
@@ -8,6 +9,10 @@ if($sql->rowCount()>0){
     $list = $sql->fetchAll(PDO::FETCH_ASSOC);
 }
 
+if($_SESSION["sucess"]){
+    echo $_SESSION["sucess"];
+    $_SESSION["sucess"] = "";
+}
 ?>
 
 <a href="create.php">Adicionar pokemon</a>
@@ -23,6 +28,7 @@ if($sql->rowCount()>0){
                 <th>Tipo</th>
                 <th>Região</th>
                 <th>Descrição</th>
+                <th>Atualizações</th>
             </tr>
         </thead>
         <tbody>
@@ -33,6 +39,10 @@ if($sql->rowCount()>0){
                 <td><?=$poke["type"]?></td>
                 <td><?=$poke["region"]?></td>
                 <td><?=$poke["description"]?></td>
+                <td>
+                    <a href="edit.php?id=<?=$poke["id"]?>">Editar</a>
+                    <a href="config/delete.php">Deletar</a>
+                </td>
                
             </tr>
             <?php endforeach ?>
