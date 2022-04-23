@@ -41,7 +41,7 @@ if($_SESSION["sucess"]){
                 <td><?=$poke["description"]?></td>
                 <td>
                     <a href="edit.php?id=<?=$poke["id"]?>">Editar</a>
-                    <a href="config/delete.php">Deletar</a>
+                    <a href="config/delete.php?id=<?=$poke["id"]?>" onclick="return confirm('Tem certeza que deseja excluir esse pokémon?')">Deletar</a>
                 </td>
                
             </tr>
