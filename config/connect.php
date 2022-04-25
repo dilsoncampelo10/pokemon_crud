@@ -2,8 +2,8 @@
 
 $host = "localhost";
 $dbname = "pokemon";
-$user = "dilmysql";
-$pass = "naogostodisso";
+$user = "root";
+$pass = "";
 
 try{
     $conn = new PDO("mysql:host=$host;dbname=$dbname;",$user,$pass);

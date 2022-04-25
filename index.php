@@ -15,7 +15,7 @@ if($_SESSION["sucess"]){
 }
 ?>
 
-<a href="create.php">Adicionar pokemon</a>
+
 
 
 <section>
@@ -49,7 +49,9 @@ if($_SESSION["sucess"]){
         </tbody>
     </table>
 <?php else:?>
-    <h1>Não há nenhum pokémon registrado</h1>
+    <div class="void">
+        <h1>Não há nenhum pokémon registrado</h1>
+    </div>
 <?php endif?>
 </section>
 
